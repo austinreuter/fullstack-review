@@ -13,9 +13,29 @@ class App extends React.Component {
 
   }
 
+  componendDidMount() {
+    //get request to server and direct db to get 'top 25';
+  }
+
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
+    //post from server
+    //get back searched data
+    $.ajax({
+      type: 'POST',
+      url: '/repos',
+      data: {user: term},
+      //contentType: 'application/json',
+      success: function(data) {
+        console.log('success')
+        console.log(data);
+      },
+      error: function(error) {
+        console.log('err')
+        console.log(error);
+      }
+
+    });
   }
 
   render () {
