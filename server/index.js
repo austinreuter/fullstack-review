@@ -21,8 +21,16 @@ app.post('/repos', function (req, res) {
 app.get('/repos', function (req, res) {
   retrieveAll((instances) => {
   	console.log('retrieved data', instances);
-
-  	res.json(instances[0].repos);
+    var results = [];
+    var repos = instances.forEach(user => {
+      var repos = user.repos; 
+      repos.forEach(repo => {
+        if (!results.includes(repo) && results.length < 25) {
+          results.push(repo);
+        }
+      })
+    })
+  	res.json(results);
   });
   // TODO - your code here!
   // This route should send back the top 25 repos

@@ -12,7 +12,7 @@ const RepoList = (props) => {
         There are {props.repos.length} repos.
       </div>
       <ul>
-        {props.repos.map(repo => <Repo repo={repo} />)}
+        {props.repos.map((repo, key) => <Repo repo={repo} key={key}/>)}
       </ul>
     </div>
   )
