@@ -13,8 +13,19 @@ class App extends React.Component {
 
   }
 
-  componendDidMount() {
+  componentDidMount() {
     //get request to server and direct db to get 'top 25';
+    $.ajax({
+      type: 'GET', 
+      url: '/repos',
+      success: function(data) {
+        console.log('successful mount / get 25');
+        console.log('data', data);
+      },
+      error: function(err) {
+        console.log('err mount', err);
+      }
+    });
   }
 
   search (term) {
