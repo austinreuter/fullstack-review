@@ -23,7 +23,7 @@ let save = (userData, callback) => {
 
 };
 let retrieveAll = (callback) => {
-	Repo.find({user: 'austinreuter'}, (err, instances)=> {
+	Repo.find({}, (err, instances)=> {
     if (err) {
     	throw err;
     }
