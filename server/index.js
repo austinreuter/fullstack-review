@@ -21,7 +21,8 @@ app.post('/repos', function (req, res) {
 app.get('/repos', function (req, res) {
   retrieveAll((instances) => {
   	console.log('retrieved data', instances);
-  	res.send(instances);
+
+  	res.json(instances[0].repos);
   });
   // TODO - your code here!
   // This route should send back the top 25 repos

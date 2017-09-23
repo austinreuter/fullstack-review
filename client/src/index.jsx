@@ -18,9 +18,9 @@ class App extends React.Component {
     $.ajax({
       type: 'GET', 
       url: '/repos',
-      success: function(data) {
-        console.log('successful mount / get 25');
-        console.log('data', data);
+      success: (data) => {
+        this.setState({repos: data})
+        console.log(this.state.repos)
       },
       error: function(err) {
         console.log('err mount', err);
